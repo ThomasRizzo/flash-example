@@ -1,0 +1,26 @@
+[package]
+name = "flash-example"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+embassy-rp = { version = "0.3", features = ["rp235x"] }
+embassy-executor = { version = "0.6", features = ["task-arena", "arch-cortex-m", "executor-thread"] }
+embassy-time = "0.4"
+embassy-sync = "0.6"
+
+postcard = { version = "1.1", features = ["use-std", "alloc"] }
+heapless = { version = "0.8", features = ["serde"] }
+rustc-hash = "2.0"
+
+cortex-m = "0.7"
+cortex-m-rt = "0.7"
+static_cell = "2.1"
+
+# For defmt logging (optional but very useful)
+defmt = "1.0"
+defmt-rtt = "1.0"
+panic-probe = { version = "0.3", features = ["print-defmt"] }
+
+[profile.release]
+opt-level = "s"
